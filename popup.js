@@ -13,17 +13,10 @@ function click(e) {
   window.close();
 }
 
-let highlight = document.getElementById('highlight');
-highlight.onclick = function(element){
-    highlight.style.background = '#FFFF00'
+let highlight = document.getElementById('Wellness');
+Wellness.onclick = function(element){
+  highlight.style.background = '#6A5ACD' //changes color when it's clicked
 }
-
-document.addEventListener('DOMContentLoaded', function () {
-  var divs = document.querySelectorAll('div');
-  for (var i = 0; i < divs.length; i++) {
-    divs[i].addEventListener('click', click);
-  }
-});
 
 //code not from the Chromium Authors
 document.getElementById("save-btn").onclick = async () => {
@@ -70,10 +63,8 @@ document.getElementById("save-btn").onclick = async () => {
   });
   
   chrome.storage.local.set({index: count + 3}, function() {
-    //document.body.append('Index is set to ' + count);
     document.body.append("stored");
   });
-    //document.body.append(", postcount   " + count + ";");//printf whole number
     document.body.append(document.createElement('br'));
 
 };
