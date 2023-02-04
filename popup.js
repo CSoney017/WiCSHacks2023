@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //code not from the Chromium Authors
 document.getElementById("save-btn").onclick = async () => {
-  const [tab] = await chrome.tabs.query({active: true, currentWindow: true});
+  /*const [tab] = await chrome.tabs.query({active: true, currentWindow: true});
   let result;
   try {
     [{result}] = await chrome.scripting.executeScript({
@@ -55,8 +55,10 @@ document.getElementById("save-btn").onclick = async () => {
   }
        //document.body.append(", list length:" + count);//printf, 0 or previous num   
        //document.body.append(", result:   " + result); //printf, result
-
-  list[count]=result;
+  */
+  let result = "test result"
+  //list[count]=result;
+  list[0] = result;
   //list[count + 1] = tab.getUrl;
   
   chrome.storage.local.set({key: list}, function() {
