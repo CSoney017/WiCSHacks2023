@@ -6,5 +6,5 @@
    returns rankings of best fits
      optional: charts -- for data savvy award
      
-** 2. Childcare support services **
+**2. Childcare support services**
    using same maps and websties -- APIs 
