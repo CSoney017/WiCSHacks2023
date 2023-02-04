@@ -17,5 +17,5 @@ body {
 
   .container{
     display: grid;
-    grid-template-columns: lfr lfr lfr lfr;
+    grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr;
   }
