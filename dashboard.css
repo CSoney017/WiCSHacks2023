@@ -14,3 +14,8 @@ body {
     padding: 0.5em 1em;
 
   }
+
+  .container{
+    display: grid;
+    grid-template-columns: lfr lfr lfr lfr;
+  }
