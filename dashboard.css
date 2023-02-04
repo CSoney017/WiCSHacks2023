@@ -11,11 +11,11 @@ body {
     font-size: 16px;
     line-height: 1.5; /* 24px */
     max-width: 10em;
-    padding: 0.5em 1em;
+    padding: 0.5em 0.5em;
 
   }
 
   .container{
     display: grid;
-    grid-template-columns: 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr;
+    grid-template-columns: 0.3fr 0.3fr 0.3fr 0.3fr 0.3fr 0.3fr 0.3fr;
   }
