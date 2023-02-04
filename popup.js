@@ -13,15 +13,17 @@ function click(e) {
   window.close();
 }
 
-<<<<<<< HEAD
-let highlight = document.getElementById('Wellness');
-Wellness.onclick = function(element){
-  highlight.style.background = '#6A5ACD' //changes color when it's clicked
-=======
 let wellness = document.getElementById('Wellness-Score');
 wellness.onclick = function(element){
     wellness.style.background = '#FFFF00'
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  var checkButton = document.getElementById('time'); 
+  checkButton.addEventListener('click', function() {
+    alert("Are you ready to clock in?"); 
+  }, false); 
+}, false); 
 
 var slider = document.getElementById("well_score");
 var score = 0;
@@ -50,7 +52,6 @@ slider.oninput = function() {
     //document.body.append('Index is set to ' + count);
     document.body.append("stored");
   });
->>>>>>> e9ca5b2034e3ddc035a838e54e04e2479fdd5b40
 }
 
 //code not from the Chromium Authors
