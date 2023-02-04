@@ -1,10 +1,15 @@
 # WiCSHacks2023
 
-**1. Low-income pregnant women shelters**   
-   using locations and keywords from Google Maps -- APIs  
-   such as: distance, price, hours, transportation (part of distance)  
-   returns rankings of best fits  
-     optional: charts -- for data savvy award  
-     
-**2. Childcare support services**  
-   using same maps and websties -- APIs  
+**BurnOut Calendar**
+Monthly/Weekly/Daily calendar with an add button for the following categories:  
+
+1. Study time -- time spent in classes, office hours, and study groups etc.  
+    Suggestion: Import google calendar into chrome extension -- tag repeating classes as study time
+2. Leisure time -- movies, friends, eating out, exercise  
+3. Work time -- work on the clock + overtime  
+
+Daily rating 1 - 10: feelings + notes section  
+
+**Weekly and Monthly summary**  
+
+Growing flowers  
