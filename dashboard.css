@@ -10,12 +10,12 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 16px;
     line-height: 1.5; /* 24px */
-    max-width: 15em;
+    max-width: 7em;
     padding: 0.5em 1em;
 
   }
 
   .container{
     display: grid;
-    grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr;
+    grid-template-columns: 0.3fr 0.3fr 0.3fr 0.3fr 0.3fr 0.3fr 0.3fr;
   }

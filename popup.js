@@ -13,14 +13,49 @@ function click(e) {
   window.close();
 }
 
+<<<<<<< HEAD
 let highlight = document.getElementById('Wellness');
 Wellness.onclick = function(element){
   highlight.style.background = '#6A5ACD' //changes color when it's clicked
+=======
+let wellness = document.getElementById('Wellness-Score');
+wellness.onclick = function(element){
+    wellness.style.background = '#FFFF00'
+}
+
+var slider = document.getElementById("well_score");
+var score = 0;
+//var output = document.getElementById("demo");
+//output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  score = this.value;
+  let date = new Date();
+  //list[count]=result;
+  list[0] = date.getFullYear()+'-'+date.getDate()+',wellness,'+str(0)+','+str(0)+','+str(score)+','+'';
+  //list[count + 1] = tab.getUrl;
+  
+  chrome.storage.local.set({key: list}, function() {
+  
+      //document.body.append(", precount   " + count);//printf, 0 or previous num
+      chrome.storage.local.get(["key"], function(total) {
+         list = total.key;
+         //alert('aaaaaaaaa');
+         //document.body.append(", check:" + list[count] + ",");
+      });
+  });
+  
+  chrome.storage.local.set({index: count + 3}, function() {
+    //document.body.append('Index is set to ' + count);
+    document.body.append("stored");
+  });
+>>>>>>> e9ca5b2034e3ddc035a838e54e04e2479fdd5b40
 }
 
 //code not from the Chromium Authors
 document.getElementById("save-btn").onclick = async () => {
-  const [tab] = await chrome.tabs.query({active: true, currentWindow: true});
+  /*const [tab] = await chrome.tabs.query({active: true, currentWindow: true});
   let result;
   try {
     [{result}] = await chrome.scripting.executeScript({
@@ -48,8 +83,10 @@ document.getElementById("save-btn").onclick = async () => {
   }
        //document.body.append(", list length:" + count);//printf, 0 or previous num   
        //document.body.append(", result:   " + result); //printf, result
-
-  list[count]=result;
+  */
+  let result = "test result"
+  //list[count]=result;
+  list[0] = result;
   //list[count + 1] = tab.getUrl;
   
   chrome.storage.local.set({key: list}, function() {
