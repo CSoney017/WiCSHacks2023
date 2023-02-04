@@ -1,7 +1,7 @@
 {
-    "name": "Annotation Extension",
+    "name": "Burn Out",
     "description": "Build an Extension!",
-    "version": "0.1",
+    "version": "1.0",
     "manifest_version": 3,
     //https://developer.chrome.com/docs/extensions/mv3/declare_permissions/
 	"permissions": ["activeTab", "background", "clipboardWrite", "scripting", "search", "storage", "tabs", "unlimitedStorage"],
