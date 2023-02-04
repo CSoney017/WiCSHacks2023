@@ -13,9 +13,38 @@ function click(e) {
   window.close();
 }
 
-let highlight = document.getElementById('highlight');
-highlight.onclick = function(element){
-    highlight.style.background = '#FFFF00'
+let wellness = document.getElementById('Wellness-Score');
+wellness.onclick = function(element){
+    wellness.style.background = '#FFFF00'
+}
+
+var slider = document.getElementById("well_score");
+var score = 0;
+//var output = document.getElementById("demo");
+//output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  score = this.value;
+  let date = new Date();
+  //list[count]=result;
+  list[0] = date.getFullYear()+'-'+date.getDate()+',wellness,'+str(0)+','+str(0)+','+str(score)+','+'';
+  //list[count + 1] = tab.getUrl;
+  
+  chrome.storage.local.set({key: list}, function() {
+  
+      //document.body.append(", precount   " + count);//printf, 0 or previous num
+      chrome.storage.local.get(["key"], function(total) {
+         list = total.key;
+         //alert('aaaaaaaaa');
+         //document.body.append(", check:" + list[count] + ",");
+      });
+  });
+  
+  chrome.storage.local.set({index: count + 3}, function() {
+    //document.body.append('Index is set to ' + count);
+    document.body.append("stored");
+  });
 }
 
 document.addEventListener('DOMContentLoaded', function () {
