@@ -12,7 +12,5 @@ body {
     max-width: 23em;
     padding: 0.5em 1em;
     
-    &__icon {
-      margin-right: 0.5em;
-    }
+    
   }
