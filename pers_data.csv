@@ -1,0 +1,5 @@
+date,category,timein,timeout,elapsed_time,wellness,notes
+2023-02-04,"work",10:00:00,12:00:00,2,0,""
+2023-02-04,"study",14:00:00,15:00:00,1,0,""
+2023-02-04,"wellness",0,0,6,"felt average"
+2023-02-05,"leisure",16:00:00,21:00:00,5,0,"watched tv"
