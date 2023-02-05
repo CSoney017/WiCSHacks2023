@@ -21,9 +21,27 @@ wellness.onclick = function(element){
 document.addEventListener('DOMContentLoaded', function() {
   var checkButton = document.getElementById('time'); 
   checkButton.addEventListener('click', function() {
-    alert("Are you ready to clock in?"); 
+    alert("Are you ready to clock in?");
   }, false); 
 }, false); 
+
+//meant to create a count down timer 
+<p id = "demo"> </p>
+var countDownDate = new Date("Feb 4, 2023 17:42").getTime(); 
+var x = setInterval(function() {
+  var now = new Date().getTime(); 
+  var distance = countDownDate - now; 
+  var days = Math.floor(distance / (1000*60*60*24)); 
+  var hours = Math.floor((distance % (1000*60*60 * 24)) / (1000 * 60 * 60)); 
+  var minutes = Math.floor((distance % (1000*60*60))/ (1000*60)); 
+  
+  document.getElementById("demo").innerHTML = days + "d" + hours + "h" + minutes + "m"; 
+  if (distance < 0 ) {
+    clearInterval(x); 
+    document.getElementById("demo").innerHTML = "EXPIRED"; 
+
+  }
+}, 1000); 
 
 var slider = document.getElementById("well_score");
 var score = 0;
