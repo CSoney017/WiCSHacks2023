@@ -1,15 +1,15 @@
 
 document.getElementById("summary").onclick = async () => {
-    document.body.append("Attempting to show summary" + document.createElement('br'));
+    document.body.append("Attempting to show summary");
     //savedtext.append("refresh attempted");
-        document.body.append(document.createElement('br'));
-        chrome.storage.local.get(['key'], function(result) {
-        for(var ii = 0; ii < result.key.length; ii++){
-            //document.body.append('New highlight:    "');
-            document.body.append(result.key[ii]);
-            document.body.append('"');
-            alert('ooooooooooo');
-        }
+    document.body.append(document.createElement('br'));
+    chrome.storage.local.get(['key'], function(result) {
+    for(var ii = 0; ii < result.key.length; ii++){
+        //document.body.append('New highlight:    "');
+        document.body.append(result.key[ii]);
+        document.body.append('"');
+        alert('ooooooooooo');
+    }
     
         
         document.body.append(document.createElement('br'));
@@ -66,3 +66,29 @@ document.getElementById("summary").onclick = async () => {
 //         document.body.append(document.createElement('br'));
     
 // }
+
+
+slider.oninput = function() {
+    score = this.value;
+    let date = new Date();
+    //list[count]=result;
+    list[0] = date.getFullYear()+'-'+date.getDate()+',wellness,'+0+','+0+','+score+','+'';
+    //list[count + 1] = tab.getUrl;
+    
+    chrome.storage.local.set({key: list}, function() {
+    
+        //document.body.append(", precount   " + count);//printf, 0 or previous num
+        chrome.storage.local.get(["key"], function(total) {
+           list = total.key;
+           //alert('aaaaaaaaa');
+           //document.body.append(", check:" + list[count] + ",");
+        });
+    });
+  
+    list[0] = 
+    
+    chrome.storage.local.set({index: count + 3}, function() {
+      //document.body.append('Index is set to ' + count);
+      document.body.append("stored");
+    });
+  }

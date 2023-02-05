@@ -7,11 +7,11 @@ var list = new Array();
 var count;
 var index;
 
-function click(e) {
+/*function click(e) {
   chrome.tabs.executeScript(null,
       {code:"document.body.style.backgroundColor='" + e.target.id + "'"});
   window.close();
-}
+}*/
 
 let wellness = document.getElementById('Wellness-Score');
 wellness.onclick = function(element){
@@ -24,28 +24,7 @@ var score = 0;
 //output.innerHTML = slider.value; // Display the default slider value
 
 // Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-  score = this.value;
-  let date = new Date();
-  //list[count]=result;
-  list[0] = date.getFullYear()+'-'+date.getDate()+',wellness,'+str(0)+','+str(0)+','+str(score)+','+'';
-  //list[count + 1] = tab.getUrl;
-  
-  chrome.storage.local.set({key: list}, function() {
-  
-      //document.body.append(", precount   " + count);//printf, 0 or previous num
-      chrome.storage.local.get(["key"], function(total) {
-         list = total.key;
-         //alert('aaaaaaaaa');
-         //document.body.append(", check:" + list[count] + ",");
-      });
-  });
-  
-  chrome.storage.local.set({index: count + 3}, function() {
-    //document.body.append('Index is set to ' + count);
-    document.body.append("stored");
-  });
-}
+
 
 document.addEventListener('DOMContentLoaded', function () {
   var divs = document.querySelectorAll('div');
@@ -108,3 +87,11 @@ document.getElementById("save-btn").onclick = async () => {
     document.body.append(document.createElement('br'));
 
 };
+
+
+
+/*<label id="Wellness-Score">Wellness</label>
+    <div class="slidecontainer">
+      <input type="range" min="1" max="10" value="5" class="slider" id="well_score">
+    </div>
+    <br><br></br>*/
