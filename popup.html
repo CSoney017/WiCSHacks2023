@@ -2,13 +2,42 @@
 <html>
   <head>
     <title>Burn Out</title>
+    <img src = "BURNOUT.svg" width="200" height="200"/>
     <subtitle> get rid of that B.O. </subtitle>
   </head>
   <body>
     <h1>Burn Out</h1>
-    <button id="time">Clock In</button>
 
+    <p> Select a 'time in' category: </p>
     <br></br>
+
+    <div> 
+      <input type = "radio" name = "size" value = "Work Time" id = "work">
+      <label for = "work" > Work Time </label>
+    </div>
+
+    <div> 
+      <input type = "radio" name = "size" value = "Leisure Time" id = "play"> 
+      <label for = "play"> Leisure Time </label>
+    </div>
+
+    <div> 
+      <input type = "radio" name = "size" value = "Study Time" id = "study">
+      <label for = "study"> Study Time </label>
+    </div>
+    <br> <br>
+
+    <p> 
+      <button id = "btn"> Clock In</button>
+    </p>
+    
+    <p id = "output"></p>
+
+    <label id="Wellness-Score">Wellness</label>
+    <div class="slidecontainer">
+      <input type="range" min="1" max="10" value="5" class="slider" id="well_score">
+    </div>
+    <br><br>
     
     <button id="save-btn">Save</button>
     <br><br>

@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import data from "data.json"
-
 'use strict';
 
 var list = new Array();
@@ -16,17 +14,33 @@ var index;
   window.close();
 }*/
 
+const btn = document.getElementById('btn');        
+const radioButtons = document.querySelectorAll('input[name="size"]');
+btn.addEventListener("click", () => {
+  let selectedSize;
+    for (const radioButton of radioButtons) {
+        if (radioButton.checked) {
+            selectedSize = radioButton.value;
+            break;
+        }
+    }
+            // show the output:
+    output.innerText = selectedSize ? `You selected ${selectedSize}` : `You haven't selected any size`;
+});
 
+
+/*let clockin = document.getElementById('clock-in');
 document.addEventListener('DOMContentLoaded', function() {
   var checkButton = document.getElementById('time'); 
   checkButton.addEventListener('click', function() {
     alert("Are you ready to clock in?");
   }, false); 
-}, false); 
+}, false); */
 
+
+/*
 //meant to create a count down timer 
-
-/*var countDownDate = new Date("Feb 4, 2023 17:42").getTime(); 
+var countDownDate = new Date("Feb 4, 2023 17:42").getTime(); 
 var x = setInterval(function() {
   var now = new Date().getTime(); 
   var distance = countDownDate - now; 
@@ -41,6 +55,7 @@ var x = setInterval(function() {
 
   }
 }, 1000); 
+*/
 
 var slider = document.getElementById("well_score");
 var score = 0;
@@ -49,15 +64,15 @@ var score = 0;
 
 // Update the current slider value (each time you drag the slider handle)
 
-*/
+
 //code not from the Chromium Authors
 document.getElementById("save-btn").onclick = async () => {
   
-  let result = data;
+  //let result = data;
   //list[count]=result;
-  list[0] = result;
+  list[0] = "TEST";
   //list[count + 1] = tab.getUrl;
-  alert(result);
+  //alert(result);
   
   chrome.storage.local.set({key: list}, function() {
   

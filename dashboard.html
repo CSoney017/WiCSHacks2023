@@ -3,10 +3,32 @@
   <head>
     <title>Dashboard</title>
     <link rel="stylesheet" href="dashboard.css">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+      google.charts.load('current', {packages: ['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+  
+      function drawChart() {
+        alert("drawing chart");
+        // Define the chart to be drawn.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Element');
+        data.addColumn('number', 'Percentage');
+        data.addRows([
+          ['Nitrogen', 0.78],
+          ['Oxygen', 0.21],
+          ['Other', 0.01]
+        ]);
+        alert("drawing chart");
+        // Instantiate and draw the chart.
+        var chart = new google.visualization.PieChart(document.getElementById("myPieChart"));
+        chart.draw(data, null);
+      }
+    </script>
   </head>
   <body>
-     <button id="summary">Refresh</button>
     <br></br>
+    
     <script src="dashboard.js"></script>
 
     <title>Bullet Journal</title>
@@ -146,63 +168,9 @@
         <textarea id="next-month" spellcheck="false"></textarea>
       </label>
     </form>
-    
-    <script>
-    const days  = Array.from(document.querySelectorAll(".day"));
-    const notes = Array.from(document.querySelectorAll("textarea"));
-    
-    document.addEventListener("keydown", e => {
-      if (e.metaKey === true && e.key === "s") {
-        e.preventDefault();
-      }
-    });
-    
-    function hightlightCurrentDay() {
-      if (document.visibilityState != 'visible') { return; }
-    
-      var today = new Date();
-    
-      days.forEach((day, index) => {
-        unhighlightDay(day);
-        if (index === today.getDay() - 1) {
-          highlightDay(day, today.getDate() + "." + (today.getMonth() + 1) + ".");
-        }
-      });
-    }
-    
-    function highlightDay(day, dateString) {
-      day.setAttribute("aria-current", "date");
-    
-      let span = document.createElement("span");
-      span.innerHTML = dateString;
-    
-      day.querySelector("textarea").setAttribute("autofocus", true);
-      day.querySelector("textarea").focus();
-      day.querySelector(".heading").append(span);
-    }
-    
-    function unhighlightDay(day) {
-      day.removeAttribute("aria-current");
-      day.querySelector("textarea").removeAttribute("autofocus");
-      let existingSpan = day.querySelector(".heading > span");
-      if (existingSpan != null) { existingSpan.remove() }
-    }
-    
-    hightlightCurrentDay();
-    document.addEventListener('visibilitychange', hightlightCurrentDay);
-    
-    // handle note-taking
-    notes.forEach(note => {
-      const id = note.id;
-    
-      // get initial html
-      note.value = localStorage.getItem(id);
-    
-      // save changes
-      note.addEventListener("input", e => {
-        localStorage.setItem(id, note.value);
-      });
-    });
-    </script>
+   
   </body>
+  <div id="chart_cont" style="max-width:700px; height:400px; background-color: white;">
+    <canvas id="myPieChart" style="max-width:700px; height:400px;""></canvas>
+  </div> 
 </html>
