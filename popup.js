@@ -3,66 +3,33 @@
 // found in the LICENSE file.
 
 'use strict';
+
 var list = new Array();
 var count;
 var index;
 
-function click(e) {
+/*function click(e) {
   chrome.tabs.executeScript(null,
       {code:"document.body.style.backgroundColor='" + e.target.id + "'"});
   window.close();
-}
+}*/
 
-let wellness = document.getElementById('Wellness-Score');
-wellness.onclick = function(element){
-    wellness.style.background = '#FFFF00'
-}
+const btn = document.getElementById('btn');        
+const radioButtons = document.querySelectorAll('input[name="size"]');
+btn.addEventListener("click", () => {
+  let selectedSize;
+    for (const radioButton of radioButtons) {
+        if (radioButton.checked) {
+            selectedSize = radioButton.value;
+            break;
+        }
+    }
+            // show the output:
+    output.innerText = selectedSize ? `You selected ${selectedSize}` : `You haven't selected any size`;
+});
 
-function updateTime() {
 
-  // get all parts of the current time
-  var now = new Date();
-  var hours = now.getHours();
-  var minutes = now.getMinutes();
-  var seconds = now.getSeconds();
-
-  // splice them together into a character string named "currentTime"
-  var currentTime = hours + ':' + minutes + ':' + seconds;
-
-  // get the clock div
-  var myClock = document.getElementById('clock');
-
-  // write the currentTime string to the clock div
-  myClock.innerHTML = currentTime;
-  
-}
-
-function toggleClock() {
-  // get the clock
-  var myClock = document.getElementById('clock');
-
-  // get the current value of the clock's display property
-  var displaySetting = myClock.style.display;
-
-  // also get the clock button, so we can change what it says
-  var clockButton = document.getElementById('clockButton');
-
-  // now toggle the clock and the button text, depending on current state
-  if (displaySetting == 'block') {
-    // clock is visible. hide it
-    myClock.style.display = 'none';
-    // change button text
-    clockButton.innerHTML = 'Show clock';
-    display: block;
-  }
-  else {
-    // clock is hidden. show it
-    myClock.style.display = 'block';
-    // change button text
-    clockButton.innerHTML = 'Hide clock';
-  }
-}
-
+/*let clockin = document.getElementById('clock-in');
 document.addEventListener('DOMContentLoaded', function() {
   var checkButton = document.getElementById('time'); 
   checkButton.addEventListener('click', function() {
@@ -70,22 +37,21 @@ document.addEventListener('DOMContentLoaded', function() {
   }, false); 
 }, false); 
 
-var counter = 0; 
-const btn = document.querySelector('#btn');
-const output = document.querySelector('#output');        
-    const radioButtons = document.querySelectorAll('input[name="size"]');
-    btn.addEventListener("click", () => {
-        let selectedSize;
-        for (const radioButton of radioButtons) {
-            if (radioButton.checked) {
-                selectedSize = radioButton.value;
-                counter = 1; 
-                break;
-            }
-        }
-        // show the output:
-        output.innerText = selectedSize ? `You selected ${selectedSize}` : `You haven't selected any size`;
-      });
+const btn = document.querySelector('#btn'); 
+const radioButtons = document.querySelectorAll('input[name="size"]'); 
+btn.addEventListener("click", () => {
+
+  let selectedSize; 
+  for (const radioButton of radioButtons)
+  {
+    if (radioButton.checked) {
+      selectedSize = radioButton.value; 
+      break;
+    }
+  }
+
+  output.innerText = selectedSize ? 
+})
 
 /*
 //meant to create a count down timer 
@@ -112,12 +78,16 @@ var score = 0;
 //output.innerHTML = slider.value; // Display the default slider value
 
 // Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-  score = this.value;
-  let date = new Date();
+
+
+//code not from the Chromium Authors
+document.getElementById("save-btn").onclick = async () => {
+  
+  //let result = data;
   //list[count]=result;
-  list[0] = date.getFullYear()+'-'+date.getDate()+',wellness,'+str(0)+','+str(0)+','+str(score)+','+'';
+  list[0] = "TEST";
   //list[count + 1] = tab.getUrl;
+  //alert(result);
   
   chrome.storage.local.set({key: list}, function() {
   
@@ -130,14 +100,17 @@ slider.oninput = function() {
   });
   
   chrome.storage.local.set({index: count + 3}, function() {
-    //document.body.append('Index is set to ' + count);
     document.body.append("stored");
   });
-}
+    document.body.append(document.createElement('br'));
 
-//code not from the Chromium Authors
-document.getElementById("save-btn").onclick = async () => {
-  /*const [tab] = await chrome.tabs.query({active: true, currentWindow: true});
+};
+
+
+
+
+
+/*const [tab] = await chrome.tabs.query({active: true, currentWindow: true});
   let result;
   try {
     [{result}] = await chrome.scripting.executeScript({
@@ -166,24 +139,10 @@ document.getElementById("save-btn").onclick = async () => {
        //document.body.append(", list length:" + count);//printf, 0 or previous num   
        //document.body.append(", result:   " + result); //printf, result
   */
-  let result = "test result"
-  //list[count]=result;
-  list[0] = result;
-  //list[count + 1] = tab.getUrl;
-  
-  chrome.storage.local.set({key: list}, function() {
-  
-      //document.body.append(", precount   " + count);//printf, 0 or previous num
-      chrome.storage.local.get(["key"], function(total) {
-         list = total.key;
-         //alert('aaaaaaaaa');
-         //document.body.append(", check:" + list[count] + ",");
-      });
-  });
-  
-  chrome.storage.local.set({index: count + 3}, function() {
-    document.body.append("stored");
-  });
-    document.body.append(document.createElement('br'));
 
-};
+
+/*<label id="Wellness-Score">Wellness</label>
+    <div class="slidecontainer">
+      <input type="range" min="1" max="10" value="5" class="slider" id="well_score">
+    </div>
+    <br><br></br>*/
