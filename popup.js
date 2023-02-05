@@ -35,8 +35,23 @@ document.addEventListener('DOMContentLoaded', function() {
   checkButton.addEventListener('click', function() {
     alert("Are you ready to clock in?");
   }, false); 
-}, false); */
+}, false); 
 
+const btn = document.querySelector('#btn'); 
+const radioButtons = document.querySelectorAll('input[name="size"]'); 
+btn.addEventListener("click", () => {
+
+  let selectedSize; 
+  for (const radioButton of radioButtons)
+  {
+    if (radioButton.checked) {
+      selectedSize = radioButton.value; 
+      break;
+    }
+  }
+
+  output.innerText = selectedSize ? 
+})
 
 /*
 //meant to create a count down timer 
