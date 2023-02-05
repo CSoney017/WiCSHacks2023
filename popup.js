@@ -18,6 +18,51 @@ wellness.onclick = function(element){
     wellness.style.background = '#FFFF00'
 }
 
+function updateTime() {
+
+  // get all parts of the current time
+  var now = new Date();
+  var hours = now.getHours();
+  var minutes = now.getMinutes();
+  var seconds = now.getSeconds();
+
+  // splice them together into a character string named "currentTime"
+  var currentTime = hours + ':' + minutes + ':' + seconds;
+
+  // get the clock div
+  var myClock = document.getElementById('clock');
+
+  // write the currentTime string to the clock div
+  myClock.innerHTML = currentTime;
+  
+}
+
+function toggleClock() {
+  // get the clock
+  var myClock = document.getElementById('clock');
+
+  // get the current value of the clock's display property
+  var displaySetting = myClock.style.display;
+
+  // also get the clock button, so we can change what it says
+  var clockButton = document.getElementById('clockButton');
+
+  // now toggle the clock and the button text, depending on current state
+  if (displaySetting == 'block') {
+    // clock is visible. hide it
+    myClock.style.display = 'none';
+    // change button text
+    clockButton.innerHTML = 'Show clock';
+    display: block;
+  }
+  else {
+    // clock is hidden. show it
+    myClock.style.display = 'block';
+    // change button text
+    clockButton.innerHTML = 'Hide clock';
+  }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   var checkButton = document.getElementById('time'); 
   checkButton.addEventListener('click', function() {
@@ -25,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }, false); 
 }, false); 
 
+var counter = 0; 
 const btn = document.querySelector('#btn');
 const output = document.querySelector('#output');        
     const radioButtons = document.querySelectorAll('input[name="size"]');
@@ -33,12 +79,14 @@ const output = document.querySelector('#output');
         for (const radioButton of radioButtons) {
             if (radioButton.checked) {
                 selectedSize = radioButton.value;
+                counter = 1; 
                 break;
             }
         }
         // show the output:
         output.innerText = selectedSize ? `You selected ${selectedSize}` : `You haven't selected any size`;
-    });
+      });
+
 /*
 //meant to create a count down timer 
 var countDownDate = new Date("Feb 4, 2023 17:42").getTime(); 

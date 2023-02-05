@@ -9,7 +9,6 @@
     <h1>Burn Out</h1>
 
     <p> Select a 'time in' category: </p>
-    <br></br>
 
     <div> 
       <input type = "radio" name = "size" value = "Work Time" id = "work">
@@ -25,13 +24,20 @@
       <input type ="radio" name ="size" value ="Study Time" id ="study">
       <label for ="study">Study Time</label>
     </div>
-    <br> <br>
-
     <p> 
       <button id = "btn"> Show Selected Value </button>
     </p>
     
     <p id = "output"></p>
+    <div id = "clock"></div>
+    <body onload="setInterval('updateTime()',1000)">
+    <style>
+      div#clock {
+        display: none;
+      }
+      </style>
+    <button onclick="toggleClock()" id="clockButton">Show clock</button>
+    <br></br>
 
     <label id="Wellness-Score">Wellness</label>
     <div class="slidecontainer">
