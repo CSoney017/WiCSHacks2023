@@ -25,8 +25,24 @@ document.addEventListener('DOMContentLoaded', function() {
   }, false); 
 }, false); 
 
+const btn = document.querySelector('#btn'); 
+const radioButtons = document.querySelectorAll('input[name="size"]'); 
+btn.addEventListener("click", () => {
+
+  let selectedSize; 
+  for (const radioButton of radioButtons)
+  {
+    if (radioButton.checked) {
+      selectedSize = radioButton.value; 
+      break;
+    }
+  }
+
+  output.innerText = selectedSize ? 
+})
+
+/*
 //meant to create a count down timer 
-<p id = "demo"> </p>
 var countDownDate = new Date("Feb 4, 2023 17:42").getTime(); 
 var x = setInterval(function() {
   var now = new Date().getTime(); 
@@ -42,6 +58,7 @@ var x = setInterval(function() {
 
   }
 }, 1000); 
+*/
 
 var slider = document.getElementById("well_score");
 var score = 0;

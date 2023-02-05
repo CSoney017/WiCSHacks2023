@@ -7,9 +7,47 @@
   </head>
   <body>
     <h1>Burn Out</h1>
-    <button id="time">Clock In</button>
 
+    <p> Select a 'time in' category: </p>
     <br></br>
+
+    <div> 
+      <input type = "radio" name = "size" value = "Work Time" id = "work">
+      <label for = "work" > Work Time </label>
+    </div>
+
+    <div> 
+      <input type = "radio" name = "size" value = "Leisure Time" id = "play"> 
+      <label for = "play"> Leisure Time </label>
+    </div>
+
+    <div> 
+      <input type = "radio" name = "size" value = "Study Time" id = "study">
+      <label for = "study"> Study Time </label>
+    </div>
+    <br> <br>
+
+    <p> 
+      <button id = "btn"> Show Selected Value </button>
+    </p>
+    
+    <p id = "output"></p>
+
+    <script> 
+    const btn = document.querySelector('#btn');        
+        const radioButtons = document.querySelectorAll('input[name="size"]');
+        btn.addEventListener("click", () => {
+            let selectedSize;
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    selectedSize = radioButton.value;
+                    break;
+                }
+            }
+            // show the output:
+            output.innerText = selectedSize ? `You selected ${selectedSize}` : `You haven't selected any size`;
+        });
+    </script>
 
     <label id="Wellness-Score">Wellness</label>
     <div class="slidecontainer">
