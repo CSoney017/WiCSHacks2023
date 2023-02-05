@@ -21,8 +21,8 @@
     </div>
 
     <div> 
-      <input type = "radio" name = "size" value = "Study Time" id = "study">
-      <label for = "study"> Study Time </label>
+      <input type ="radio" name ="size" value ="Study Time" id ="study">
+      <label for ="study">Study Time</label>
     </div>
     <br> <br>
 
@@ -31,22 +31,6 @@
     </p>
     
     <p id = "output"></p>
-
-    <script> 
-    const btn = document.querySelector('#btn');        
-        const radioButtons = document.querySelectorAll('input[name="size"]');
-        btn.addEventListener("click", () => {
-            let selectedSize;
-            for (const radioButton of radioButtons) {
-                if (radioButton.checked) {
-                    selectedSize = radioButton.value;
-                    break;
-                }
-            }
-            // show the output:
-            output.innerText = selectedSize ? `You selected ${selectedSize}` : `You haven't selected any size`;
-        });
-    </script>
 
     <label id="Wellness-Score">Wellness</label>
     <div class="slidecontainer">
