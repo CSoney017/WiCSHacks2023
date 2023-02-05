@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 'use strict';
+
 var list = new Array();
 var count;
 var index;
@@ -13,29 +14,53 @@ var index;
   window.close();
 }*/
 
-let wellness = document.getElementById('Wellness-Score');
-wellness.onclick = function(element){
-    wellness.style.background = '#FFFF00'
-}
 
-var slider = document.getElementById("well_score");
-var score = 0;
+document.addEventListener('DOMContentLoaded', function() {
+  var checkButton = document.getElementById('time'); 
+  checkButton.addEventListener('click', function() {
+    alert("Are you ready to clock in?"); 
+  }, false); 
+}, false); 
+
 //var output = document.getElementById("demo");
 //output.innerHTML = slider.value; // Display the default slider value
 
 // Update the current slider value (each time you drag the slider handle)
 
 
-document.addEventListener('DOMContentLoaded', function () {
-  var divs = document.querySelectorAll('div');
-  for (var i = 0; i < divs.length; i++) {
-    divs[i].addEventListener('click', click);
-  }
-});
-
 //code not from the Chromium Authors
 document.getElementById("save-btn").onclick = async () => {
-  /*const [tab] = await chrome.tabs.query({active: true, currentWindow: true});
+
+  fetch("data.json")
+    .then(response => response.json())
+    .then(json => data = json);
+  let result = data;
+  //list[count]=result;
+  list[0] = result;
+  //list[count + 1] = tab.getUrl;
+  
+  chrome.storage.local.set({key: list}, function() {
+  
+      //document.body.append(", precount   " + count);//printf, 0 or previous num
+      chrome.storage.local.get(["key"], function(total) {
+         list = total.key;
+         //alert('aaaaaaaaa');
+         //document.body.append(", check:" + list[count] + ",");
+      });
+  });
+  
+  chrome.storage.local.set({index: count + 3}, function() {
+    document.body.append("stored");
+  });
+    document.body.append(document.createElement('br'));
+
+};
+
+
+
+
+
+/*const [tab] = await chrome.tabs.query({active: true, currentWindow: true});
   let result;
   try {
     [{result}] = await chrome.scripting.executeScript({
@@ -64,30 +89,6 @@ document.getElementById("save-btn").onclick = async () => {
        //document.body.append(", list length:" + count);//printf, 0 or previous num   
        //document.body.append(", result:   " + result); //printf, result
   */
-  let result = "test result"
-  //list[count]=result;
-  list[0] = result;
-  //list[count + 1] = tab.getUrl;
-  
-  chrome.storage.local.set({key: list}, function() {
-  
-      //document.body.append(", precount   " + count);//printf, 0 or previous num
-      chrome.storage.local.get(["key"], function(total) {
-         list = total.key;
-         //alert('aaaaaaaaa');
-         //document.body.append(", check:" + list[count] + ",");
-      });
-  });
-  
-  chrome.storage.local.set({index: count + 3}, function() {
-    //document.body.append('Index is set to ' + count);
-    document.body.append("stored");
-  });
-    //document.body.append(", postcount   " + count + ";");//printf whole number
-    document.body.append(document.createElement('br'));
-
-};
-
 
 
 /*<label id="Wellness-Score">Wellness</label>

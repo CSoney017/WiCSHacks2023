@@ -8,7 +8,7 @@ document.getElementById("summary").onclick = async () => {
         //document.body.append('New highlight:    "');
         document.body.append(result.key[ii]);
         document.body.append('"');
-        alert('ooooooooooo');
+        alert(result.key[ii]);
     }
     
         
