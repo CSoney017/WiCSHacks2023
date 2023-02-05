@@ -4,6 +4,7 @@ document.getElementById("summary").onclick = async () => {
     //savedtext.append("refresh attempted");
     document.body.append(document.createElement('br'));
     chrome.storage.local.get(['key'], function(result) {
+    alert(result.key);
     for(var ii = 0; ii < result.key.length; ii++){
         //document.body.append('New highlight:    "');
         document.body.append(result.key[ii]);

@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import data from "data.json"
+
 'use strict';
 
 var list = new Array();
@@ -23,8 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
 }, false); 
 
 //meant to create a count down timer 
-<p id = "demo"> </p>
-var countDownDate = new Date("Feb 4, 2023 17:42").getTime(); 
+
+/*var countDownDate = new Date("Feb 4, 2023 17:42").getTime(); 
 var x = setInterval(function() {
   var now = new Date().getTime(); 
   var distance = countDownDate - now; 
@@ -47,17 +49,15 @@ var score = 0;
 
 // Update the current slider value (each time you drag the slider handle)
 
-
+*/
 //code not from the Chromium Authors
 document.getElementById("save-btn").onclick = async () => {
-
-  fetch("data.json")
-    .then(response => response.json())
-    .then(json => data = json);
+  
   let result = data;
   //list[count]=result;
   list[0] = result;
   //list[count + 1] = tab.getUrl;
+  alert(result);
   
   chrome.storage.local.set({key: list}, function() {
   
